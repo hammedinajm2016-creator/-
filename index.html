@@ -36,7 +36,134 @@
     <h2>📘 رياضيات</h2>
     <button>ادخل</button>
 </div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>رياضيات - ابتدائي</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f0f8ff;
+        }
+        .lesson {
+            background: white;
+            margin: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+        button {
+            padding: 8px 15px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        input {
+            padding: 5px;
+            width: 60px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
 
+<h1>📘 دروس الرياضيات</h1>
+
+<!-- درس الأعداد -->
+<div class="lesson">
+    <h2>🔢 الأعداد</h2>
+    <p>الأعداد من 1 إلى 20:</p>
+    <p>1 2 3 4 5 6 7 8 9 10 ... 20</p>
+</div>
+
+<!-- درس الجمع -->
+<div class="lesson">
+    <h2>➕ الجمع</h2>
+    <p>2 + 3 = 5</p>
+    <p>4 + 1 = 5</p>
+
+    <p>تمرين:</p>
+    <p>3 + 2 = ؟</p>
+    <input id="add1">
+    <br><br>
+    <button onclick="checkAdd()">تحقق</button>
+    <p id="resAdd"></p>
+</div>
+
+<!-- درس الطرح -->
+<div class="lesson">
+    <h2>➖ الطرح</h2>
+    <p>5 - 2 = 3</p>
+    <p>6 - 1 = 5</p>
+
+    <p>تمرين:</p>
+    <p>5 - 3 = ؟</p>
+    <input id="sub1">
+    <br><br>
+    <button onclick="checkSub()">تحقق</button>
+    <p id="resSub"></p>
+</div>
+
+<!-- درس المقارنة -->
+<div class="lesson">
+    <h2>⚖️ مقارنة الأعداد</h2>
+    <p>5 > 3 (5 أكبر من 3)</p>
+    <p>2 < 4 (2 أصغر من 4)</p>
+</div>
+
+<!-- لعبة -->
+<div class="lesson">
+    <h2>🎮 لعبة حساب</h2>
+    <p id="q"></p>
+    <input id="ans">
+    <br><br>
+    <button onclick="checkGame()">جاوب</button>
+    <p id="result"></p>
+    <p>⭐ النقاط: <span id="score">0</span></p>
+</div>
+
+<script>
+function checkAdd() {
+    let x = document.getElementById("add1").value;
+    document.getElementById("resAdd").innerHTML = 
+        (x == 5) ? "✅ صحيح" : "❌ خطأ";
+}
+
+function checkSub() {
+    let x = document.getElementById("sub1").value;
+    document.getElementById("resSub").innerHTML = 
+        (x == 2) ? "✅ صحيح" : "❌ خطأ";
+}
+
+// لعبة
+let a, b, score = 0;
+
+function newQ() {
+    a = Math.floor(Math.random()*10);
+    b = Math.floor(Math.random()*10);
+    document.getElementById("q").innerHTML = a + " + " + b + " = ؟";
+}
+
+function checkGame() {
+    let user = document.getElementById("ans").value;
+    if(user == a + b) {
+        score++;
+        document.getElementById("result").innerHTML = "✅";
+    } else {
+        document.getElementById("result").innerHTML = "❌";
+    }
+    document.getElementById("score").innerHTML = score;
+    document.getElementById("ans").value = "";
+    newQ();
+}
+
+newQ();
+</script>
+
+</body>
+</html>
 <div class="box">
     <h2>📖 عربية</h2>
     <button>ادخل</button>
